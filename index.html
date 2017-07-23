@@ -1,0 +1,81 @@
+<!DOCTYPE>
+<html>
+<head>
+<script src="src/jquery-3.2.1.js"></script>
+<script src="src/stest.js"></script>
+<script>
+    $(document).ready(function(){
+            $("#dropZone").text("DROP HERE");
+    });
+    function draggedFilesValue(event){
+        
+        event.preventDefault();
+     //   event.stopPropagation(); //얘랑 차이는 뭘까...
+        var draggedFiles = event.dataTransfer.files;
+        // Jquery에서는 originalEvent.dataTransfer. .... 형태로 작성해야 한다! 삽질 하지 말 것.
+        
+        createFileList(draggedFiles);
+     //   uploadFile(draggedFiles); // ajax!
+        
+        
+//        var reader = new FileReader();
+    }
+
+function uploadFile(files){
+    for(file in files){
+        $.ajax({
+               url: "upload.html", //upload주소
+               enctype: "multipart/form-data",
+        })
+    }
+}
+
+function createFileList(files){ // 이부분을 ajax로 바꿔야 할듯.
+    for (var i=0; i < files.length; i++) {
+        var tableNode = document.getElementsByClassName("fileList");
+        var trNode = document.createElement("tr");
+        
+        tableNode[0].appendChild(trNode);
+        
+        var tdNodeName = document.createElement("td");
+        tdNodeName.innerHTML = files[i].name;
+        var tdNodeSize = document.createElement("td");
+        tdNodeSize.innerHTML = files[i].size;
+        var tdNodeType = document.createElement("td")
+        tdNodeType.innerHTML = files[i].type;
+        
+        trNode.appendChild(tdNodeName);
+        trNode.appendChild(tdNodeType);
+        trNode.appendChild(tdNodeSize);
+        
+    }
+
+}
+function allowDrop(event){
+    event.preventDefault();
+        // 브라우저 표준 동작이 우선처리 되어 드롭 조작을 방해함.
+        // 기본 동작을 취할 수 있도록 함.
+}
+</script>
+<style>
+    .dropZone{
+        width:100%;
+        height:100%;
+        border-style: dashed;
+        border-width: 2px;
+        text-align: center;
+        color: gray;
+    }
+    table {
+        width:100%;
+    }
+</style>
+</head>
+<body>
+<div class="dropZone" ondrop="draggedFilesValue(event)" ondragover="allowDrop(event)">
+    drag here
+    <table class="fileList">
+    </table>
+  </div>
+</body>
+</html>
