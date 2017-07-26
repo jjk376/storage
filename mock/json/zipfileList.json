@@ -1,0 +1,18 @@
+{
+	
+	"items":
+	[{
+			"fileId":11,
+			"userId":"admin",
+			"fileName":"20170628.pngx",
+			"fileSize":513420,
+			"fileUploadTime":1501061704000
+		},
+		{
+			"fileId":12,
+			"userId":"admin",	
+			"fileName":"20170628",
+			"fileSize":513420,
+			"fileUploadTime":1501061704000
+	}]
+}
