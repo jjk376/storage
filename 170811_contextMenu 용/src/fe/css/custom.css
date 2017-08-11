@@ -1,0 +1,88 @@
+/* jjk376 */
+#dropZone {
+	border-style: dashed;
+	border-width: 2px;
+	text-align: center;
+	color: gray;
+}
+.dropdown-menu {
+	overflow-y:auto;
+}
+.dropdown-menu > li{
+	min-height:50px;
+	width: 300px;
+	padding: 20px 20px 10px 10px;
+	border-bottom: 1px dashed gray;
+}
+.dropdown-menu > li:last-child {
+	border-bottom: none;
+}
+.dropDownView {
+	max-height:300px;
+    position: absolute;
+    border:1px solid red;
+    overflow-y:scroll;
+}
+.filename{
+	display: block; 
+	overflow: hidden; 
+	white-space: nowrap; 
+	width: 130px;
+	text-overflow: ellipsis;
+}
+
+#ZipViewerBackground {
+	position: fixed;
+	display:none;
+	top: 51px;
+	height: 100%;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.9);
+	z-index: 1;
+}
+
+.floatRight{
+	float: right;
+	margin-right: 2px;
+}
+#zipFilePath{
+	margin-left:5px;
+	float: left;
+	line-height: 30px;
+	height: 30px;
+}
+#zipFileTab{
+	height: 30px;
+	background-color: B7B7B7;
+}
+#zipFileTree {
+	border-right: 1px dashed gray;
+	height: calc(100% - 55px);
+	overflow: auto;
+}
+#zipFileList {
+	padding: 0px;
+	overflow: auto;
+	height: calc(100% - 55px);
+}
+#contextMenu {
+	position: absolute;
+	display:none;
+	width: 100px;
+	top: 0px;
+	left: 0px;
+	border: 1px solid gray;
+	background-color: white;
+	z-index: 2;
+}
+#contextMenu .menu {
+	border-bottom: 1px dashed gray;
+	height: 20px;
+}
+#contextMenu .menu:hover {
+	background-color: B7B7B7;
+	height: 20px;
+}
+#contextMenu .menu:last-child{
+	border-bottom: none;
+}
